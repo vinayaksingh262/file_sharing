@@ -6,6 +6,7 @@ import pyqrcode
 import os
 
 PORT = 8010
+#use userprofile on windows, home on linux/mac
 user_home = os.environ.get("USERPROFILE") or os.environ.get("HOME")
 onedrive_path = os.path.join(user_home, "OneDrive")
 desktop = onedrive_path if os.path.exists(onedrive_path) else user_home
