@@ -6,9 +6,9 @@ import pyqrcode
 import os
 
 PORT = 8010
-os.environ["USERPROFILE"]
-
-desktop = os.path.join(os.path.join(os.environ["USERPROFILE"]), "OneDrive")
+user_home = os.environ.get("USERPROFILE") or os.environ.get("HOME")
+onedrive_path = os.path.join(user_home, "OneDrive")
+desktop = onedrive_path if os.path.exists(onedrive_path) else user_home
 os.chdir(desktop)
 
 Handler = http.server.SimpleHTTPRequestHandler
